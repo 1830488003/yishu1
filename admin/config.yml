@@ -1,0 +1,61 @@
+backend:
+  name: github
+  repo: 用户名/仓库名 # 替换为您的 GitHub 用户名和仓库名
+  branch: main # 或者您的主分支名，例如 master
+  # site_domain: your-custom-domain.com # 如果您使用了自定义域名，请取消注释并配置
+
+media_folder: "assets/uploads" # 图片等媒体文件将存储在此文件夹
+public_folder: "/assets/uploads" # 网站上访问这些媒体文件的路径
+
+collections:
+  - name: "homepage_sections" # 首页六个板块的内容
+    label: "首页板块"
+    label_singular: "首页板块"
+    folder: "_data/homepage_sections" # 内容文件将存储在此文件夹
+    create: true # 允许在 CMS 中创建新的板块条目
+    slug: "{{slug}}" # 文件名将基于标题生成
+    fields:
+      - { label: "板块ID (英文, 小写, 无空格, 例如: section1)", name: "id", widget: "string" }
+      - { label: "板块标题 (中文)", name: "title_zh", widget: "string" }
+      - { label: "板块标题 (英文)", name: "title_en", widget: "string" }
+      - { label: "板块描述 (中文)", name: "description_zh", widget: "text" }
+      - { label: "板块描述 (英文)", name: "description_en", widget: "text" }
+      - { label: "板块图片", name: "image", widget: "image", required: false }
+      - { label: "链接到页面 (例如: biography.html)", name: "link", widget: "string", required: false, hint: "如果此板块需要链接到单独页面，请填写HTML文件名" }
+
+  - name: "biography_page"
+    label: "艺术家介绍页面"
+    label_singular: "艺术家介绍页面"
+    folder: "_data/pages" # 假设页面内容也存储在 _data 目录下
+    create: false # 通常页面是固定的，这里不允许创建新页面，只编辑现有内容
+    slug: "biography" # 文件名固定为 biography.yml 或 biography.md
+    fields:
+      - { label: "页面主标题 (中文)", name: "heading_zh", widget: "string" }
+      - { label: "页面主标题 (英文)", name: "heading_en", widget: "string" }
+      - { label: "艺术家照片", name: "artist_image", widget: "image", required: false }
+      - { label: "介绍段落一 (中文)", name: "paragraph1_zh", widget: "markdown" }
+      - { label: "介绍段落一 (英文)", name: "paragraph1_en", widget: "markdown" }
+      - { label: "介绍段落二 (中文)", name: "paragraph2_zh", widget: "markdown", required: false }
+      - { label: "介绍段落二 (英文)", name: "paragraph2_en", widget: "markdown", required: false }
+      # 您可以根据 biography.html 的实际内容添加更多字段
+
+  # 您可以为 techniques.html, gallery.html 等其他页面创建类似的集合
+  # 例如:
+  # - name: "techniques_page"
+  #   label: "技法页面"
+  #   folder: "_data/pages"
+  #   slug: "techniques"
+  #   fields:
+  #     - { label: "页面主标题 (中文)", name: "heading_zh", widget: "string" }
+  #     - { label: "页面主标题 (英文)", name: "heading_en", widget: "string" }
+  #     - { label: "内容 (中文)", name: "content_zh", widget: "markdown" }
+  #     - { label: "内容 (英文)", name: "content_en", widget: "markdown" }
+
+# 注意:
+# 1. 您需要将 `repo: 用户名/仓库名` 替换为您的实际 GitHub 用户名和仓库名。
+# 2. `folder` 路径定义了内容文件在您仓库中的存储位置。例如 `_data/homepage_sections`。
+#    您需要在项目中创建这些文件夹。
+# 3. `fields` 定义了在 CMS 编辑界面中看到的表单字段。
+# 4. 后续步骤将涉及修改 HTML 文件 (index.html, biography.html 等) 以从这些数据文件动态加载内容。
+#    这通常需要使用 JavaScript 或者静态站点生成器 (如 Jekyll, Eleventy, Next.js 等) 的模板功能。
+#    如果仅使用纯 HTML 和 JavaScript，您需要编写 JS 代码来获取这些 .md 或 .yml 文件内容并填充到页面中。

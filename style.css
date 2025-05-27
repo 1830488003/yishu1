@@ -1,0 +1,156 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* 更现代的字体 */
+    margin: 0;
+    background-color: #e9e9e9; /* 浅灰色背景，类似新截图 */
+    color: #333;
+    /* 隐藏滚动条，但保留滚动功能 */
+    overflow: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+}
+
+body::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+header {
+    background-color: #1a2533; /* 更深的蓝色背景 */
+    color: white;
+    padding: 1.2em 2em; /* 调整内边距 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid #d4af37; /* 金色下边框，更接近参考图的金色 */
+}
+
+header .logo {
+    margin-left: 0; /* 移除左边距，让其更靠左 */
+    font-size: 1.8em; /* 增大Logo字体 */
+    font-weight: bold;
+    color: #ffffff; /* Logo文字颜色 */
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center; /* 垂直居中导航项 */
+}
+
+nav ul li {
+    margin-left: 25px; /* 增加导航项间距 */
+}
+
+nav ul li a {
+    color: #e0e0e0; /* 导航链接浅灰色 */
+    text-decoration: none;
+    font-size: 0.95em; /* 调整导航字体大小 */
+    text-transform: uppercase;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent; /* 为激活状态准备 */
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active { /* 假设我们会有active类来标记当前页面 */
+    color: #d4af37; /* 鼠标悬停或激活时变为金色 */
+    border-bottom-color: #d4af37;
+}
+
+.language-switcher {
+    margin-right: 0; /* 移除右边距 */
+}
+
+.language-switcher button {
+    background-color: #d4af37; /* 金色背景 */
+    color: #1a2533; /* 深蓝色文字 */
+    border: none;
+    padding: 10px 15px; /* 调整按钮内边距 */
+    margin-left: 8px; /* 调整按钮间距 */
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 3px; /* 轻微圆角 */
+    transition: background-color 0.3s ease;
+}
+
+.language-switcher button:hover {
+    background-color: #c09d2e; /* 鼠标悬停时颜色变深 */
+}
+
+main {
+    padding: 40px 20px; /* 增加上下内边距 */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 调整卡片最小宽度 */
+    gap: 30px; /* 增加卡片间距 */
+}
+
+section { /* 用于首页的卡片 */
+    background-color: white;
+    padding: 25px; /* 调整卡片内边距 */
+    border-radius: 10px; /* 更大的圆角 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* 更柔和的阴影 */
+    display: flex;
+    flex-direction: column;
+}
+
+section h2 {
+    color: #1a2533; /* 深蓝色标题 */
+    border-bottom: 3px solid #d4af37; /* 金色下划线 */
+    padding-bottom: 12px; /* 调整下划线与文字间距 */
+    margin-top: 0;
+    font-size: 1.6em; /* 调整标题大小 */
+}
+
+section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px; /* 轻微圆角图片 */
+    margin-bottom: 15px;
+    border: 1px solid #eee; /* 图片边框 */
+}
+
+section p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #555; /* 段落文字颜色 */
+    flex-grow: 1; /* 让段落占据剩余空间，如果卡片高度不一致 */
+}
+
+/* 新增的用于内容页面的样式 */
+.content-page {
+    background-color: white;
+    padding: 30px 40px; /* 内容页内边距 */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin: 0 auto; /* 居中显示 */
+    max-width: 900px; /* 限制内容最大宽度 */
+}
+
+.content-page h1 {
+    color: #1a2533;
+    border-bottom: 3px solid #d4af37;
+    padding-bottom: 15px;
+    margin-top: 0;
+    font-size: 2.2em;
+}
+
+.content-page p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 1.5em;
+}
+
+
+footer {
+    text-align: center;
+    padding: 25px 20px; /* 调整页脚内边距 */
+    background-color: #1a2533; /* 页脚深色背景 */
+    color: #bdc3c7; /* 页脚文字颜色 */
+    margin-top: 40px; /* 增加与主内容间距 */
+    font-size: 0.9em;
+}
