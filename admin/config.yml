@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: 用户名/仓库名 # 替换为您的 GitHub 用户名和仓库名
-  branch: main # 或者您的主分支名，例如 master
-  # site_domain: your-custom-domain.com # 如果您使用了自定义域名，请取消注释并配置
+  repo: 1830488003/yishu1 # 更新为您的 GitHub 仓库
+  branch: main # 假设您的主分支是 main
+  site_domain: chimerical-cupcake-f7fb5f.netlify.app # 添加 Netlify 站点域名
 
 media_folder: "assets/uploads" # 图片等媒体文件将存储在此文件夹
 public_folder: "/assets/uploads" # 网站上访问这些媒体文件的路径
